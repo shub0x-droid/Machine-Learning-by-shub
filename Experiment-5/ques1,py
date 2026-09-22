@@ -1,0 +1,22 @@
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+
+X = np.array([
+    [2, 50],
+    [3, 60],
+    [5, 70],
+    [7, 80],
+    [1, 40],
+    [8, 90],
+    [6, 85]
+])
+# Target: 0 = Fail, 1 = Pass
+y = np.array([0, 0, 1, 1, 0, 1, 1])
+
+model = LogisticRegression()
+model.fit(X, y)
+
+y_pred = model.predict(X)
+print("Predicted Classes:", y_pred)
+print(f"Accuracy: {accuracy_score(y, y_pred):.4f}")
